@@ -1,0 +1,6 @@
+{
+  "name": "SahanProcure Direct",
+  "description": "Institutional-grade B2B procurement & supplier tendering platform for Somaliland commercial hubs (Hargeisa, Berbera, Burao), featuring RFQ matrices, Berbera Port customs tracking, and Chamber verification.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

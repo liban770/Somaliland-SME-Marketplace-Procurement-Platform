@@ -1,0 +1,98 @@
+<div class="min-h-screen bg-[#f8f9fa] text-[#171717] flex flex-col font-sans">
+  <!-- Persistent Enterprise Masthead -->
+  <app-header />
+
+  <!-- Main Viewport Body -->
+  <main class="flex-1 max-w-[1720px] w-full mx-auto px-4 sm:px-6 py-4">
+    <!-- Institutional Context Breadcrumb Strip -->
+    <div class="flex flex-wrap items-center justify-between text-xs text-[#6B7280] pb-2 border-b border-[#E5E7EB]">
+      <div class="flex items-center space-x-2">
+        <span class="font-bold text-[#111111]">SahanProcure Direct</span>
+        <span>/</span>
+        <span class="font-semibold text-[#d71920]">Commercial Procurement Exchange</span>
+        <span>/</span>
+        <span>{{ service.selectedHubFilter() === 'ALL' ? 'All Somaliland Hubs' : service.selectedHubFilter() }}</span>
+      </div>
+
+      <div class="flex items-center space-x-3 text-[11px]">
+        <span class="hidden md:inline">Central Bank Benchmark: <strong>1 USD = 8,500 SLSH</strong></span>
+        <span class="inline-flex items-center space-x-1 text-[#15803D] font-bold">
+          <mat-icon class="text-[12px]! w-3! h-3!">verified</mat-icon>
+          <span>CHAMBER OF COMMERCE AUDITED</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- KPI Metrics Cards Bar -->
+    <app-metrics-bar />
+
+    <!-- Active View Router / State Switcher -->
+    <section class="mt-4">
+      @switch (service.activeView()) {
+        @case ('requisitions') {
+          <app-requisition-list />
+        }
+        @case ('matrix') {
+          <app-rfq-comparison />
+        }
+        @case ('customs') {
+          <app-customs-manifests />
+        }
+        @case ('purchase-orders') {
+          <app-purchase-orders />
+        }
+        @case ('suppliers') {
+          <app-supplier-directory />
+        }
+      }
+    </section>
+  </main>
+
+  <!-- Enterprise Institutional Footer -->
+  <footer class="bg-[#111111] text-white border-t border-black mt-12 py-6 text-xs select-none">
+    <div class="max-w-[1720px] mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-white/10 pb-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded bg-[#d71920] flex items-center justify-center font-bold text-white text-xs">
+            SP
+          </div>
+          <div>
+            <div class="font-bold text-sm tracking-tight text-white">
+              SAHAN<span class="text-[#d71920]">PROCURE</span> DIRECT
+            </div>
+            <div class="text-[11px] text-white/50">
+              Institutional B2B Procurement, Tender Matrix & Port Logistics Engine
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4 text-white/70 text-[11px]">
+          <span>Hargeisa Commercial HQ</span>
+          <span>•</span>
+          <span>Berbera Free Zone & Port</span>
+          <span>•</span>
+          <span>Burao Logistics Hub</span>
+          <span>•</span>
+          <span>Borama Regional Depot</span>
+        </div>
+      </div>
+
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-white/50">
+        <div>
+          © 2026 SahanProcure Direct. In partnership with Somaliland Chamber of Commerce, Industry & Agriculture.
+        </div>
+        <div class="flex items-center space-x-3 font-mono text-[10px]">
+          <span>DP WORLD BERBERA EDI CONNECTED</span>
+          <span>•</span>
+          <span>CENTRAL BANK RATE: 8,500 SLSH/USD</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global Modals & Inspector Drawer -->
+  <app-create-rfq-modal />
+  <app-po-modal />
+  <app-audit-drawer />
+</div>
+
